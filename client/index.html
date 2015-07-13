@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+      <link rel="stylesheet" href="styles/bootstrap.css">
+      
+    <!--      <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/sweet-alert.css"> -->
+      <link rel="stylesheet" href="styles/styles.min.css">
+  </head>
+  <body ng-app="instagram">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+<div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <a href="/" class="navbar-brand"><i class="ion-images"></i> Instagram</a>
+      <li><a href="#/">Home</a></li>
+      <li ng-if="!isAuthenticated()"><a href="#/login">Log in</a></li>
+      <li ng-if="!isAuthenticated()"><a href="#/signup">Sign up</a></li>
+      <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-if="isAuthenticated() && currentUser.username">
+        <a href="http://instagram.com/{{currentUser.username}}">
+          <img class="media-object img-rounded" ng-src="{{currentUser.picture}}" height="56px" width="56px">
+          @{{currentUser.username}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="container">
+    <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+      <!--
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/satellizer.js"></script>
+
+
+       
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/detail.js"></script>
+        <script src="scripts/controllers/home.js"></script>
+       <script src="scripts/controllers/login.js"></script>
+       <script src="scripts/controllers/main.js"></script>
+       <script src="scripts/controllers/navbar.js"></script>
+       <script src="scripts/controllers/signup.js"></script>
+      <script src="scripts/directives/serverError.js"></script>  
+      <script src="services/api.js"></script> -->
+       <script src="app.min.js"></script>
+</body>
+</html>
